@@ -1,5 +1,5 @@
-import { createEnv } from '@t3-oss/env-nextjs'
-import { z } from 'zod'
+import { createEnv } from '@t3-oss/env-nextjs';
+import { z } from 'zod';
 
 export const env = createEnv({
   /*
@@ -23,9 +23,6 @@ export const env = createEnv({
    *
    * 💡 You'll get type errors if not all variables from `server` & `client` are included here.
    */
-  runtimeEnv: {
-    APP_URL: process.env.APP_URL,
-    API_KEY: process.env.API_KEY,
-    POSTGRES_URL: process.env.POSTGRES_URL,
-  },
-})
+
+  experimental__runtimeEnv: {},
+});

@@ -3,43 +3,7 @@
   "prevId": "",
   "version": "5",
   "dialect": "pg",
-  "tables": {
-    "urls": {
-      "name": "urls",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "url": {
-          "name": "url",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "alias": {
-          "name": "alias",
-          "type": "varchar(10)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "count": {
-          "name": "count",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "default": 0
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    }
-  },
+  "tables": {},
   "enums": {
     "key_status": {
       "name": "key_status",
@@ -66,17 +30,10 @@
         "aead-ietf": "aead-ietf"
       }
     },
-    "aal_level": {
-      "name": "aal_level",
-      "values": {
-        "aal3": "aal3",
-        "aal2": "aal2",
-        "aal1": "aal1"
-      }
-    },
     "factor_type": {
       "name": "factor_type",
       "values": {
+        "phone": "phone",
         "webauthn": "webauthn",
         "totp": "totp"
       }
@@ -88,11 +45,52 @@
         "unverified": "unverified"
       }
     },
+    "aal_level": {
+      "name": "aal_level",
+      "values": {
+        "aal3": "aal3",
+        "aal2": "aal2",
+        "aal1": "aal1"
+      }
+    },
     "code_challenge_method": {
       "name": "code_challenge_method",
       "values": {
         "plain": "plain",
         "s256": "s256"
+      }
+    },
+    "one_time_token_type": {
+      "name": "one_time_token_type",
+      "values": {
+        "phone_change_token": "phone_change_token",
+        "email_change_token_current": "email_change_token_current",
+        "email_change_token_new": "email_change_token_new",
+        "recovery_token": "recovery_token",
+        "reauthentication_token": "reauthentication_token",
+        "confirmation_token": "confirmation_token"
+      }
+    },
+    "equality_op": {
+      "name": "equality_op",
+      "values": {
+        "in": "in",
+        "gte": "gte",
+        "gt": "gt",
+        "lte": "lte",
+        "lt": "lt",
+        "neq": "neq",
+        "eq": "eq"
+      }
+    },
+    "action": {
+      "name": "action",
+      "values": {
+        "ERROR": "ERROR",
+        "TRUNCATE": "TRUNCATE",
+        "DELETE": "DELETE",
+        "UPDATE": "UPDATE",
+        "INSERT": "INSERT"
       }
     }
   },

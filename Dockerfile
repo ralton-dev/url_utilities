@@ -27,12 +27,14 @@ RUN addgroup -g 10001 -S app && adduser -u 10001 -S app -G app
 
 COPY --from=builder --chown=10001:10001 /app/.next/standalone ./
 COPY --from=builder --chown=10001:10001 /app/.next/static ./.next/static
-# Migration assets (used by the Helm pre-install hook).
-# Standalone output doesn't trace drizzle-orm/postgres-js/migrator since
-# no server route imports it — copy drizzle-orm in full to cover it.
+# Migration assets (used by the pre-sync Job in the k8s deploy).
+# The Next standalone trace doesn't include drizzle-orm's migrator submodule
+# or the `postgres` driver in a location migrate.mjs can resolve, so copy
+# both packages explicitly.
 COPY --from=builder --chown=10001:10001 /app/src/db/migrations ./src/db/migrations
 COPY --from=builder --chown=10001:10001 /app/scripts ./scripts
 COPY --from=builder --chown=10001:10001 /app/node_modules/drizzle-orm ./node_modules/drizzle-orm
+COPY --from=builder --chown=10001:10001 /app/node_modules/postgres ./node_modules/postgres
 
 USER 10001
 

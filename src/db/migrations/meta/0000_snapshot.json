@@ -1,103 +1,102 @@
 {
-  "id": "00000000-0000-0000-0000-000000000000",
-  "prevId": "",
-  "version": "5",
-  "dialect": "pg",
-  "tables": {},
-  "enums": {
-    "key_status": {
-      "name": "key_status",
-      "values": {
-        "expired": "expired",
-        "invalid": "invalid",
-        "valid": "valid",
-        "default": "default"
-      }
+  "id": "879cc9c1-1ef5-4f39-a9d5-dabba202348f",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.qr_codes": {
+      "name": "qr_codes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "url_id": {
+          "name": "url_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "qr_code": {
+          "name": "qr_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "qr_codes_url_id_urls_id_fk": {
+          "name": "qr_codes_url_id_urls_id_fk",
+          "tableFrom": "qr_codes",
+          "tableTo": "urls",
+          "columnsFrom": [
+            "url_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
     },
-    "key_type": {
-      "name": "key_type",
-      "values": {
-        "stream_xchacha20": "stream_xchacha20",
-        "secretstream": "secretstream",
-        "secretbox": "secretbox",
-        "kdf": "kdf",
-        "generichash": "generichash",
-        "shorthash": "shorthash",
-        "auth": "auth",
-        "hmacsha256": "hmacsha256",
-        "hmacsha512": "hmacsha512",
-        "aead-det": "aead-det",
-        "aead-ietf": "aead-ietf"
-      }
-    },
-    "factor_type": {
-      "name": "factor_type",
-      "values": {
-        "phone": "phone",
-        "webauthn": "webauthn",
-        "totp": "totp"
-      }
-    },
-    "factor_status": {
-      "name": "factor_status",
-      "values": {
-        "verified": "verified",
-        "unverified": "unverified"
-      }
-    },
-    "aal_level": {
-      "name": "aal_level",
-      "values": {
-        "aal3": "aal3",
-        "aal2": "aal2",
-        "aal1": "aal1"
-      }
-    },
-    "code_challenge_method": {
-      "name": "code_challenge_method",
-      "values": {
-        "plain": "plain",
-        "s256": "s256"
-      }
-    },
-    "one_time_token_type": {
-      "name": "one_time_token_type",
-      "values": {
-        "phone_change_token": "phone_change_token",
-        "email_change_token_current": "email_change_token_current",
-        "email_change_token_new": "email_change_token_new",
-        "recovery_token": "recovery_token",
-        "reauthentication_token": "reauthentication_token",
-        "confirmation_token": "confirmation_token"
-      }
-    },
-    "equality_op": {
-      "name": "equality_op",
-      "values": {
-        "in": "in",
-        "gte": "gte",
-        "gt": "gt",
-        "lte": "lte",
-        "lt": "lt",
-        "neq": "neq",
-        "eq": "eq"
-      }
-    },
-    "action": {
-      "name": "action",
-      "values": {
-        "ERROR": "ERROR",
-        "TRUNCATE": "TRUNCATE",
-        "DELETE": "DELETE",
-        "UPDATE": "UPDATE",
-        "INSERT": "INSERT"
-      }
+    "public.urls": {
+      "name": "urls",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alias": {
+          "name": "alias",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "count": {
+          "name": "count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
     }
   },
+  "enums": {},
   "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
   "_meta": {
+    "columns": {},
     "schemas": {},
-    "tables": {},
-    "columns": {}
+    "tables": {}
   }
 }

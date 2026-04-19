@@ -1,12 +1,12 @@
 {
-  "version": "5",
-  "dialect": "pg",
+  "version": "7",
+  "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
-      "version": "5",
-      "when": 1733440120025,
-      "tag": "0000_powerful_polaris",
+      "version": "7",
+      "when": 1776588949782,
+      "tag": "0000_init",
       "breakpoints": true
     }
   ]

@@ -1,7 +1,7 @@
 {
-  "name": "shortner-app",
+  "name": "url-utilities",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,9 +9,9 @@
     "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
-    "drizzle-kit:push": "NODE_EXTRA_CA_CERTS=./.supabase/prod-ca-2021.crt drizzle-kit push:pg",
-    "drizzle-kit:migrate": "NODE_EXTRA_CA_CERTS=./.supabase/prod-ca-2021.crt drizzle-kit introspect:pg",
-    "drizzle-kit:studio": "NODE_EXTRA_CA_CERTS=./.supabase/prod-ca-2021.crt drizzle-kit studio"
+    "drizzle-kit:push": "drizzle-kit push:pg",
+    "drizzle-kit:migrate": "drizzle-kit introspect:pg",
+    "drizzle-kit:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.8.0",

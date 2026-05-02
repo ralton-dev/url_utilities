@@ -267,11 +267,11 @@ The repo ships a serverless adapter at [`api/index.ts`](./api/index.ts) and [`ve
 
 Project env vars:
 
-| Var                 | Notes                                                |
-| ------------------- | ---------------------------------------------------- |
-| `APP_URL`           | Public base URL for this deployment                  |
-| `API_KEY`           | Bearer token for admin endpoints                     |
-| `POSTGRES_URL`      | Connection string                                    |
+| Var                 | Notes                                                                         |
+| ------------------- | ----------------------------------------------------------------------------- |
+| `APP_URL`           | Public base URL for this deployment                                           |
+| `API_KEY`           | Bearer token for admin endpoints                                              |
+| `POSTGRES_URL`      | Connection string                                                             |
 | `POSTGRES_POOL_MAX` | Set to `1` on Vercel; serverless cold starts open a fresh pool per invocation |
 
 Migrations run as part of the build (`buildCommand` in `vercel.json` invokes `scripts/migrate.mjs` before `tsc`). For this to work, `POSTGRES_URL` must be exposed to the **Build** environment in Vercel project settings, not just Runtime.

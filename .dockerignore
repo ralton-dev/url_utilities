@@ -9,6 +9,8 @@ node_modules
 .DS_Store
 .supabase
 deploy
+api
+vercel.json
 README.md
 Makefile
 *.md

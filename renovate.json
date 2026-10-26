@@ -14,7 +14,7 @@
   "platformAutomerge": false,
   "rebaseWhen": "behind-base-branch",
   "lockFileMaintenance": {
-    "enabled": true,
+    "enabled": false,
     "schedule": ["before 6am on monday"],
     "automerge": false
   },

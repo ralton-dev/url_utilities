@@ -30,7 +30,7 @@
     "@eslint/js": "^10.0.0",
     "@types/node": "^26.0.0",
     "@types/qrcode": "^1.5.5",
-    "dotenv": "^16.4.1",
+    "dotenv": "^18.0.0",
     "drizzle-kit": "^0.31.10",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.0.0",
